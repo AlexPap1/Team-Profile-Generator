@@ -1,21 +1,21 @@
 {
   "name": "read-me-generator",
   "version": "1.0.0",
-  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
+  "description": "Profile Generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexPap1/READ-ME-Generator.git"
+    "url": "git+https://github.com/AlexPap1/Team-Profile-Generator.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AlexPap1/READ-ME-Generator/issues"
+    "url": "https://github.com/AlexPap1/Team-Profile-Generator/issues"
   },
-  "homepage": "https://github.com/AlexPap1/READ-ME-Generator#readme",
+  "homepage": "https://github.com/AlexPap1/Team-Profile-Generator#readme",
   "dependencies": {
     "inquirer": "^8.2.4"
   }
