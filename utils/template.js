@@ -1,72 +1,35 @@
-//function to generate markdown for README
-function generateMarkdown(data) {
-//start of html setup
-  return `# Title: ${data.repo}
+//basic html page template
+module.exports = generate => {
+  return `
+  <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Team Profile Generator</title>
+        <link rel="stylesheet" href="./dist/style.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 jumbotron text-white mb-3">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="main-section col-12 d-flex justify-content-center">
+                    ${createProfile(generate)}
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    `;
+};
 
-${licenseBadge(data.license)}
-
-## 🖥️ Github URL 🖥️
-<br />
-
-## ${data.username}
-## https://github.com/${data.username}/
-<br />
-
-## 🖊️ Description 🖊️
-<br />
-
-${data.description}
-<br />
-
-## 📜 Table of Contents 📜
-<br />
-
-* [Installations](#⬇️-installations-⬇️)
-* [Usage](#⚙️-usage-⚙️)
-${licenseLink(data.license)}
-* [Contributors](#🤝-contributors-🤝)
-* [Tests](#👾-tests-👾)
-* [Questions?](#🤔-questions-🤔)
-<br />
-
-## ⬇️ Installations ⬇️
-<br />
-
-${data.instructions}
-<br />
-
-## ⚙️ Usage ⚙️
-<br />
-
-${data.usage}
-<br />
-
-## 🤝 Contributors 🤝
-<br />
-
-${data.contributing}
-<br />
-
-## 👾 Tests 👾
-<br />
-
-${data.tests}
-<br />
-
-${licenseSection(data.license)}
-<br />
-
-## 🤔 Questions 🤔
-<br />
-
-* Have any additional questions? Check out my github profile ${data.username} at https://github.com/${data.username}/
-
-* And feel free to ask additional questions by reaching [my email](mailto:${data.email}).
-<br />
-
-Made with ❤️ and Thank you for viewing 🤝
-
-`;
+const createProfile = generate => {
+//container cards for employee type
 }
-
-module.exports = generateMarkdown;

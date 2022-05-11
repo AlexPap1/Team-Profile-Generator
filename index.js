@@ -1,26 +1,20 @@
 // List of Dependencies. Include packages needed for this application:
-const generateMarkdown = require("./utils/generateMarkdown");
+const generate = require("./utils/template.js");
 const fs = require("fs");
 const inquirer = require("inquirer");
+const jest = require("jest");
+
+const employee = require('./lib/Employee.js');
+const manager = require('./lib/Manager');
+const intern = require ('./lib/Intern');
+const engineer = require('./lib/Engineer');
+
+const Arr = [];
 
 // Create a function to initialize app
 function init() {
-    // inquirer.prompt(questions)
-    //     .then(function (answers) {
-    //         writeToFile("./dist/index.html", generateMarkdown(answers))
-    //     })
     function manager(){
         inquirer.prompt([
-        {
-            type:'input',
-            name:'username',
-            message:'What is your GitHub Username?',
-        },
-        {
-            type:'input',
-            name:'email',
-            message:'What is your email address?',
-        },
         {
             type:'input',
             name:'manager',
@@ -41,17 +35,104 @@ function init() {
             name:'officeNumber',
             message:'What is the office number?',
         },
-        ]);
-    }
-    manager();
-};
+        ]).then(answers => {
+            const Manager = new manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
+            Arr.push(manager);
+            team();
+        });
+    };
+    function team() {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "employeeType",
+                message: "What is the job title of the next employee?",
+                choices: [
+                    "Engineer",
+                    "Intern",
+                    "Finished"
+                ]
+            }
+        //manager questions cycle... problem in below?
+        ]).then(userChoice => {
+            switch (userChoice.employeeType){
+                case "Engineer":
+                    engineer();
+                    break;
+                case "Intern":
+                    intern();
+                    break;
+                case "Finished":
+                    writeToFile();
+            }
+        });
+    };
+    function engineer() {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "engineerName",
+                message: "What is the name of the engineer?",
+            },
+            {
+                type: "input",
+                name: "engineerId",
+                message: "What is the ID of the engineer?",
+            },
+            {
+                type: "input",
+                name: "engineerEmail",
+                message: "What is the email of the engineer?",
+            },
+            {
+                type: "input",
+                name: "engineerGithub",
+                message: "What is the GitHub username for the engineer?",
+            }
+        ]).then(answers => {
+            const Engineer = new engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            Arr.push(Engineer);
+            team();
+        })
+    };
+    function intern() {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "internName",
+                message: "What is the name of the intern?",
+            },
+            {
+                type: "input",
+                name: "internId",
+                message: "What is the ID of the intern?",
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: "What is the email of the intern?",
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "What is the name of the school the intern is attending?",
+            }
+        ]).then(answers => {
+            const Intern = new intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            Arr.push(Intern);
+            team();
+        })
+    };
 
-//Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err =>
-        //console logs error or success
-        err ? console.log(err) : console.log('Success!')
-    )
+    //Create a function to write html
+    function writeToFile() {
+        fs.writeFile(path.join('index.html', render(Arr), "utf-8"), err =>
+            //console logs error or success
+            err ? console.log(err) : console.log('Success!')
+        )
+    }
+
+    manager();  
 };
 
 // Function call to initialize app
