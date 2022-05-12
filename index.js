@@ -13,7 +13,7 @@ const Arr = [];
 
 // Create a function to initialize app
 function init() {
-    function manager(){
+    function addManager(){
         inquirer.prompt([
         {
             type:'input',
@@ -36,8 +36,9 @@ function init() {
             message:'What is the office number?',
         },
         ]).then(answers => {
-            const Manager = new manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
-            Arr.push(manager);
+            console.log(answers)
+            // const manager = new Manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
+            // Arr.push(manager);
             team();
         });
     };
@@ -57,17 +58,17 @@ function init() {
         ]).then(userChoice => {
             switch (userChoice.employeeType){
                 case "Engineer":
-                    engineer();
+                    addEngineer();
                     break;
                 case "Intern":
-                    intern();
+                    addIntern();
                     break;
                 case "Finished":
                     writeToFile();
             }
         });
     };
-    function engineer() {
+    function addEngineer() {
         inquirer.prompt([
             {
                 type: "input",
@@ -90,12 +91,12 @@ function init() {
                 message: "What is the GitHub username for the engineer?",
             }
         ]).then(answers => {
-            const Engineer = new engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            //const Engineer = new engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             Arr.push(Engineer);
             team();
         })
     };
-    function intern() {
+    function addIntern() {
         inquirer.prompt([
             {
                 type: "input",
@@ -118,7 +119,7 @@ function init() {
                 message: "What is the name of the school the intern is attending?",
             }
         ]).then(answers => {
-            const Intern = new intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            //const Intern = new intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
             Arr.push(Intern);
             team();
         })
@@ -132,7 +133,7 @@ function init() {
         )
     }
 
-    manager();  
+    addManager();  
 };
 
 // Function call to initialize app
