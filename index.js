@@ -3,6 +3,9 @@ const generate = require("./utils/template.js");
 const fs = require("fs");
 const inquirer = require("inquirer");
 const jest = require("jest");
+const path = require('path');
+const render = require('./utils/template.js');
+const pathing = path.join(path.resolve(__dirname, 'dist'), 'index.html');
 
 const employee = require('./lib/Employee.js');
 const manager = require('./lib/Manager');
@@ -92,7 +95,7 @@ function init() {
             }
         ]).then(answers => {
             //const Engineer = new engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-            Arr.push(Engineer);
+            //Arr.push(Engineer);
             team();
         })
     };
@@ -120,17 +123,14 @@ function init() {
             }
         ]).then(answers => {
             //const Intern = new intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-            Arr.push(Intern);
+            //Arr.push(Intern);
             team();
         })
     };
 
     //Create a function to write html
     function writeToFile() {
-        fs.writeFile(path.join('index.html', render(Arr), "utf-8"), err =>
-            //console logs error or success
-            err ? console.log(err) : console.log('Success!')
-        )
+        fs.writeFileSync(pathing, render(Arr), "utf-8");
     }
 
     addManager();  
