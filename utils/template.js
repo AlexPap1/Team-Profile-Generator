@@ -1,4 +1,5 @@
 //basic html page template
+//change css in module.exports = generate \/
 module.exports = generate => {
   return `
   <!DOCTYPE html>
@@ -8,6 +9,7 @@ module.exports = generate => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Team Profile Generator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="./dist/style.css">
     </head>
     <body>
@@ -32,4 +34,20 @@ module.exports = generate => {
 
 const createProfile = generate => {
 //container cards for employee type
-}
+  const create = manager => {
+    return `
+    <div class="card>
+      <div class="card-header">
+        <h2 class="card-title"> ${manager.getName()}</h2>
+        <h4 class="card-job"> Manager </h4>}
+      </div>
+      <div class="card=contents">
+        <ul class="list-info">
+          <li class"list">ID: ${manager.getId()}</li>
+          <li class"list">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
+          <li class"list">Office Number: ${manager.getNumber()}</li>
+        </ul>
+      </div>
+    </div>`;
+  }
+};
