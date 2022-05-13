@@ -5,13 +5,15 @@ const inquirer = require("inquirer");
 const jest = require("jest");
 const path = require('path');
 const render = require('./utils/template.js');
-const pathing = path.join(path.resolve(__dirname, 'dist'), 'index.html');
 
+//class constructor paths
 const employee = require('./lib/Employee.js');
 const manager = require('./lib/Manager');
 const intern = require ('./lib/Intern');
 const engineer = require('./lib/Engineer');
 
+// pathing to generate html and array to store each employee's data
+const pathing = path.join(path.resolve(__dirname, 'dist'), 'index.html');
 const Arr = [];
 
 // Create a function to initialize app
@@ -40,8 +42,8 @@ function init() {
         },
         ]).then(answers => {
             console.log(answers)
-            // const manager = new Manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
-            // Arr.push(manager);
+            const manager = new manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
+            Arr.push(manager);
             team();
         });
     };
@@ -135,6 +137,7 @@ function init() {
 
     addManager();  
 };
+
 
 // Function call to initialize app
 init();
