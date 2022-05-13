@@ -8,9 +8,9 @@ const render = require('./utils/template.js');
 
 //class constructor paths
 const employee = require('./lib/Employee.js');
-const manager = require('./lib/Manager');
-const intern = require ('./lib/Intern');
-const engineer = require('./lib/Engineer');
+const Manager = require('./lib/Manager');
+const Intern = require ('./lib/Intern');
+const Engineer = require('./lib/Engineer');
 
 // pathing to generate html and array to store each employee's data
 const pathing = path.join(path.resolve(__dirname, 'dist'), 'index.html');
@@ -42,7 +42,7 @@ function init() {
         },
         ]).then(answers => {
             console.log(answers)
-            const manager = new manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
+            const manager = new Manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
             Arr.push(manager);
             team();
         });
@@ -96,8 +96,8 @@ function init() {
                 message: "What is the GitHub username for the engineer?",
             }
         ]).then(answers => {
-            //const Engineer = new engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-            //Arr.push(Engineer);
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            Arr.push(Engineer);
             team();
         })
     };
@@ -124,8 +124,8 @@ function init() {
                 message: "What is the name of the school the intern is attending?",
             }
         ]).then(answers => {
-            //const Intern = new intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-            //Arr.push(Intern);
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            Arr.push(Intern);
             team();
         })
     };
