@@ -40,8 +40,9 @@ function init() {
             message:'What is the office number?',
         },
         ]).then(answers => {
-            console.log(answers)
-            const manager = new Manager(answers.manager, answers.ManagerId, answers.managerEmail, answers.officeNumber);
+            //console.log(answers)
+            const manager = new Manager(answers.manager, answers.managerId, answers.managerEmail, answers.officeNumber);
+            console.log(manager)
             Arr.push(manager);
             team();
         });
