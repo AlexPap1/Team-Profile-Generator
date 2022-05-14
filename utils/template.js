@@ -36,18 +36,25 @@ const createProfile = generate => {
 //container cards for employee type
   const create = manager => {
     return `
-    <div class="card>
+    <div class="card">
       <div class="card-header">
         <h2 class="card-title"> ${manager.getName()}</h2>
-        <h4 class="card-job"> Manager </h4>}
+        <h4 class="card-job"> Manager </h4>
       </div>
       <div class="card=contents">
         <ul class="list-info">
-          <li class"list">ID: ${manager.getId()}</li>
-          <li class"list">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
-          <li class"list">Office Number: ${manager.getNumber()}</li>
+          <li class="list">ID: ${manager.getId()}</li>
+          <li class="list">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
+          <li class="list">Office Number: ${manager.getNumber()}</li>
         </ul>
       </div>
     </div>`;
   }
+
+const array = [];
+
+array.push(generate.map(create));
+
+return array.join("")
+
 };
