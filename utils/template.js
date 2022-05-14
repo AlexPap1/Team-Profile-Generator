@@ -51,39 +51,39 @@ const generateProfile = generate => {
     </div>`;
   };
 
-  // const generateEngineer = engineer => {
-  //   return `
-  //   <div class="card">
-  //     <div class="card-header">
-  //       <h2 class="card-title"> ${engineer.getName()}</h2>
-  //       <h4 class="card-job"> Manager </h4>
-  //     </div>
-  //     <div class="card-contents">
-  //       <ul class="list-info">
-  //         <li class="list">ID: ${engineer.getId()}</li>
-  //         <li class="list">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </li>
-  //         <li class="list">Office Number: ${engineer.getGitHub()}</li>
-  //       </ul>
-  //     </div>
-  //   </div>`;
-  // };
+  //  const generateEngineer = engineer => {
+  //    return `
+  //    <div class="card">
+  //      <div class="card-header">
+  //        <h2 class="card-title"> ${engineer.getName()}</h2>
+  //        <h4 class="card-job"> Manager </h4>
+  //      </div>
+  //      <div class="card-contents">
+  //        <ul class="list-info">
+  //          <li class="list">ID: ${engineer.getId()}</li>
+  //          <li class="list">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </li>
+  //          <li class="list">Office Number: ${engineer.getGitHub()}</li>
+  //        </ul>
+  //      </div>
+  //    </div>`;
+  //  };
 
-  // const generateIntern = intern => {
-  //   return `
-  //   <div class="card">
-  //     <div class="card-header">
-  //       <h2 class="card-title"> ${intern.getName()}</h2>
-  //       <h4 class="card-job"> Manager </h4>
-  //     </div>
-  //     <div class="card=contents">
-  //       <ul class="list-info">
-  //         <li class="list">ID: ${intern.getId()}</li>
-  //         <li class="list">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a> </li>
-  //         <li class="list">Office Number: ${intern.getSchool()}</li>
-  //       </ul>
-  //     </div>
-  //   </div>`;
-  // }
+  //  const generateIntern = intern => {
+  //    return `
+  //    <div class="card">
+  //      <div class="card-header">
+  //        <h2 class="card-title"> ${intern.getName()}</h2>
+  //        <h4 class="card-job"> Manager </h4>
+  //      </div>
+  //      <div class="card=contents">
+  //        <ul class="list-info">
+  //          <li class="list">ID: ${intern.getId()}</li>
+  //          <li class="list">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a> </li>
+  //          <li class="list">Office Number: ${intern.getSchool()}</li>
+  //        </ul>
+  //      </div>
+  //    </div>`;
+  //  }
 
 const array = [];
 
