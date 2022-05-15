@@ -41,7 +41,7 @@ This repo uses node and inquirer.
 ## ⚙️ Usage ⚙️
 <br />
 
-Please refer to the walkthrough video at the top of the ReadMe.
+Please refer to the walkthrough video at the top of the ReadMe as well as the sampleIndex.html contained within the 'Sample' folder.
 <br />
 
 ## 🤝 Contributors 🤝
