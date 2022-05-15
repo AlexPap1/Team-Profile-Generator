@@ -40,7 +40,6 @@ function init() {
             message:'What is the office number?',
         },
         ]).then(answers => {
-            //console.log(answers)
             const manager = new Manager(answers.manager, answers.managerId, answers.managerEmail, answers.officeNumber);
             console.log(manager)
             Arr.push(manager);
@@ -97,6 +96,7 @@ function init() {
             }
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            console.log(engineer)
             Arr.push(engineer);
             team();
         })
@@ -125,6 +125,7 @@ function init() {
             }
         ]).then(answers => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            console.log(intern)
             Arr.push(intern);
             team();
         })
